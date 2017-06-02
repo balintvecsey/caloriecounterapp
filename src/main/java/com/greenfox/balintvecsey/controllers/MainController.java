@@ -1,6 +1,7 @@
 package com.greenfox.balintvecsey.controllers;
 
 import com.greenfox.balintvecsey.services.MealRepository;
+import com.greenfox.balintvecsey.services.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +18,14 @@ public class MainController {
   @Autowired
   private MealRepository mealRepository;
 
+  @Autowired
+  private MealService mealService;
+
   @RequestMapping
   public String index(Model model) {
     model.addAttribute("meals", mealRepository.findAll());
+    model.addAttribute("sumMeals", mealRepository.count());
+    model.addAttribute("sumCalories", mealService.sumCalories());
     return "index";
   }
 }
