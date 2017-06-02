@@ -22,5 +22,5 @@ public class Meal {
   private Timestamp date;
   private String type;
   private String description;
-  private int calories;
+  private double calories;
 }

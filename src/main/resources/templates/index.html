@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>:: Calorie Counter App ::</title>
-</head>
-<body>
-<h1>Calorie Counter App</h1>
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>:: Calorie Counter App ::</title>
+  </head>
+  <body>
+    <h1>Calorie Counter App</h1>
+    <table border="solid black 1px">
+      <tr>
+        <th th:text="'Date'" />
+        <th th:text="'Type'" />
+        <th th:text="'Description'" />
+        <th th:text="'Calories'" />
+      </tr>
+      <tr th:each="meal: ${meals}">
+        <td th:text="${meal.date}"></td>
+        <td th:text="${meal.type}"></td>
+        <td th:text="${meal.description}"></td>
+        <td th:text="${meal.calories}"></td>
+      </tr>
+    </table>
+  </body>
 </html>
