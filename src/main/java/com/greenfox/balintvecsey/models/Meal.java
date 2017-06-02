@@ -20,7 +20,7 @@ public class Meal {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
   private Timestamp date;
-  private TypeOfMeals type;
+  private TypeOfMeal type;
   private String description;
   private int calories;
 }

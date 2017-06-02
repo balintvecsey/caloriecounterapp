@@ -13,7 +13,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class TypeOfMeals {
+public class TypeOfMeal {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
