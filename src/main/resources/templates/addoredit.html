@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>:: Calorie Counter App ::</title>
+  </head>
+  <body>
+  <h1 th:text="'Add or Edit Meals'"></h1>
+  <form th:action="@{/addoredit/hit}">
+    Date: <input name="date" type="datetime" th:value="${date}" />
+    Type: <select name="type" >
+    <option th:each="type: ${typeOfMeals}" th:value="${type.name}" th:text="${type.name}"></option>
+    </select>
+    Description: <input name="description" type="text" th:value="${description}" />
+    Calories: <input name="calories" type="number" th:value="${calories}" />
+    <input type="submit" value="Save" role="button" />
+    <a th:href="@{/}" th:text="Cancel" role="button" />
+  </form>
+  </body>
+</html>

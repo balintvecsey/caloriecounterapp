@@ -6,6 +6,7 @@
   </head>
   <body>
     <h1>Calorie Counter App</h1>
+    <a th:text="'Add new meal'" th:href="@{/addoredit}" />
     <p th:text="'Number of meals: ' + ${sumMeals}"></p>
     <p th:text="'Total calories: ' + ${sumCalories}"></p>
     <table border="solid black 1px">

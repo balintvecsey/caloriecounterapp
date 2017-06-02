@@ -1,7 +1,9 @@
 package com.greenfox.balintvecsey.controllers;
 
+import com.greenfox.balintvecsey.models.TypeOfMeal;
 import com.greenfox.balintvecsey.services.MealRepository;
 import com.greenfox.balintvecsey.services.MealService;
+import com.greenfox.balintvecsey.services.TypeOfMealRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,9 @@ public class MainController {
   private MealRepository mealRepository;
 
   @Autowired
+  private TypeOfMealRepository typeOfMealRepository;
+
+  @Autowired
   private MealService mealService;
 
   @RequestMapping
@@ -27,5 +32,16 @@ public class MainController {
     model.addAttribute("sumMeals", mealRepository.count());
     model.addAttribute("sumCalories", mealService.sumCalories());
     return "index";
+  }
+
+  @RequestMapping("/addoredit")
+  public String addoredit(Model model) {
+    model.addAttribute("typeOfMeals", typeOfMealRepository.findAll());
+    return "addoredit";
+  }
+
+  @RequestMapping("/addoredit/hit")
+  public String submit() {
+    return "redirect:/";
   }
 }
